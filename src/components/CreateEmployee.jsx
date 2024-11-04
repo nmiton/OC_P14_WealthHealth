@@ -3,7 +3,7 @@ import SelectState from "./SelectState";
 import { useRef, useState } from "react";
 import { addEmployee } from "../redux/actions";
 import { connect } from "react-redux";
-import { Modal } from "nmodal";
+import Modal from "@nmiton/modal";
 
 // eslint-disable-next-line react-refresh/only-export-components, react/prop-types
 function CreateEmployee({ addEmployee }) {
@@ -90,7 +90,7 @@ function CreateEmployee({ addEmployee }) {
 			</div>
 
 			{showModal && (
-				<Modal title={null} className={null} id="confirmation" closeModal={() => setShowModal(false)}>
+				<Modal id="confirmation" closeModal={() => setShowModal(false)}>
 					<p>Employee Created</p>
 				</Modal>
 			)}
