@@ -28,7 +28,7 @@ export default function ListEmployees() {
 	return (
 		<div className="container">
 			<h2>Current Employees</h2>
-			<DataTable title="Employee List" columns={columns} data={employeesCtxt.employees} pagination />
+			<DataTable title="Employee List :" columns={columns} data={employeesCtxt.employees} pagination noDataComponent="None employee" />
 			<Link to="/">Home</Link>
 		</div>
 	);
