@@ -25,7 +25,7 @@ Cloner le projet :
 git clone https://github.com/nmiton/OC_P14_WealthHealth.git
 ```
 
-Installer les dépendances, pour celà ouvrir un terminal au niveau du projet cloné et taper la commande suivante :
+Installer les dépendances, pour cela ouvrir un terminal au niveau du projet cloné et taper la commande suivante :
 
 ```shell
 npm i
