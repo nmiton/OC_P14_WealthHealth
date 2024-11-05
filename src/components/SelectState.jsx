@@ -1,4 +1,4 @@
-import states from "../data/states";
+import states from "../data/states"
 /**
  * Renders a select dropdown for U.S. states.
  * @param {Object} props - Component properties.
@@ -20,5 +20,5 @@ export default function SelectState({ state, setState, value }) {
 				))}
 			</select>
 		</>
-	);
+	)
 }

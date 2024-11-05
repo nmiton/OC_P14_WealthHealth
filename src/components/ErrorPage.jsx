@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 /**
  * Function to render error page
  * @returns {JSX.Element}
@@ -9,5 +9,5 @@ export default function ErrorPage() {
 			<p>Error Page</p>
 			<Link to="/">Home</Link>
 		</div>
-	);
+	)
 }
