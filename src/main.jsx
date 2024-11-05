@@ -1,15 +1,31 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
-import ListEmployees from "./components/ListEmployees";
-import { EmployeesProvider } from "./contexts/EmployeesContext";
-import CreateEmployee from "./components/CreateEmployee";
-import ErrorPage from "./components/ErrorPage";
+import React from "react"
+import ReactDOM from "react-dom/client"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import App from "./App"
+import ListEmployees from "./components/ListEmployees"
+import { EmployeesProvider } from "./contexts/EmployeesContext"
+import CreateEmployee from "./components/CreateEmployee"
+import ErrorPage from "./components/ErrorPage"
+import Home from "./components/Home"
 
 const path = createBrowserRouter([
 	{
 		path: "/",
+		element: (
+			<EmployeesProvider>
+				<App>
+					<Home />
+				</App>
+			</EmployeesProvider>
+		),
+		errorElement: (
+			<App>
+				<ErrorPage />
+			</App>
+		),
+	},
+	{
+		path: "/new-employee",
 		element: (
 			<EmployeesProvider>
 				<App>
@@ -38,12 +54,12 @@ const path = createBrowserRouter([
 			</App>
 		),
 	},
-]);
+])
 
-const root = document.getElementById("root");
+const root = document.getElementById("root")
 
 ReactDOM.createRoot(root).render(
 	<React.StrictMode>
 		<RouterProvider router={path} />
-	</React.StrictMode>
-);
+	</React.StrictMode>,
+)

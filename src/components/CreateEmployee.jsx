@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
-import SelectState from "./SelectState";
-import { useContext, useRef, useState } from "react";
-import { Modal } from "@nmiton/modal";
-import { EmployeesContext } from "../contexts/EmployeesContext";
+import { Link } from "react-router-dom"
+import SelectState from "./SelectState"
+import { useContext, useRef, useState } from "react"
+import { Modal } from "@nmiton/modal"
+import { EmployeesContext } from "../contexts/EmployeesContext"
 /**
  * Function to render form for create a new employee
  * @returns {JSX.Element}
  */
 // eslint-disable-next-line react-refresh/only-export-components, react/prop-types
 export default function CreateEmployee() {
-	const employeesCtxt = useContext(EmployeesContext);
-	const formRef = useRef();
+	const employeesCtxt = useContext(EmployeesContext)
+	const formRef = useRef()
 
 	// Initial state for a new employee with empty values
 	const initialEmployeeState = {
@@ -23,10 +23,10 @@ export default function CreateEmployee() {
 		city: "",
 		state: "Alabama",
 		zipCode: "",
-	};
-	const [employeeData, setEmployeeData] = useState(initialEmployeeState);
-	const [showModal, setShowModal] = useState(false);
-	const today = new Date();
+	}
+	const [employeeData, setEmployeeData] = useState(initialEmployeeState)
+	const [showModal, setShowModal] = useState(false)
+	const today = new Date()
 
 	/**
 	 * Updates the employee state for a specific field.
@@ -34,42 +34,42 @@ export default function CreateEmployee() {
 	 * @param {*} value - The new value.
 	 */
 	const updateEmployeeData = (field, value) => {
-		setEmployeeData((prevData) => ({ ...prevData, [field]: value }));
-	};
+		setEmployeeData((prevData) => ({ ...prevData, [field]: value }))
+	}
 
 	/**
 	 * Saves the employee data and resets the form.
 	 * @param {Event} e - The form submit event.
 	 */
 	const handleSubmit = (e) => {
-		e.preventDefault();
+		e.preventDefault()
 		if (validateFieldsNewEmployee()) {
-			employeesCtxt.addEmployee(employeeData);
-			formRef.current.reset();
-			setEmployeeData(initialEmployeeState);
-			setShowModal(true);
+			employeesCtxt.addEmployee(employeeData)
+			formRef.current.reset()
+			setEmployeeData(initialEmployeeState)
+			setShowModal(true)
 		} else {
-			alert("Form error validation...");
+			alert("Form error validation...")
 		}
-	};
+	}
 
 	/**
 	 * Function to validate fields new employee
 	 * @returns {Boolean}
 	 */
 	const validateFieldsNewEmployee = () => {
-		const date = new Date();
-		if (!employeeData.firstName) return false;
-		if (!employeeData.lastName) return false;
-		if (!employeeData.dateOfBirth || employeeData.dateOfBirth > date) return false;
-		if (!employeeData.startDate || employeeData.startDate > date) return false;
-		if (!employeeData.street) return false;
-		if (!employeeData.city) return false;
-		if (!employeeData.zipCode) return false;
-		if (!employeeData.state) return false;
-		if (!employeeData.department) return false;
-		return false;
-	};
+		const date = new Date()
+		if (!employeeData.firstName) return false
+		if (!employeeData.lastName) return false
+		if (!employeeData.dateOfBirth || employeeData.dateOfBirth > date) return false
+		if (!employeeData.startDate || employeeData.startDate > date) return false
+		if (!employeeData.street) return false
+		if (!employeeData.city) return false
+		if (!employeeData.zipCode) return false
+		if (!employeeData.state) return false
+		if (!employeeData.department) return false
+		return true
+	}
 
 	return (
 		<>
@@ -126,19 +126,45 @@ export default function CreateEmployee() {
 						<legend>Address</legend>
 
 						<label htmlFor="street">Street</label>
-						<input id="street" type="text" value={employeeData.street} onChange={(e) => updateEmployeeData("street", e.target.value)} required placeholder="Street address" />
+						<input
+							id="street"
+							type="text"
+							value={employeeData.street}
+							onChange={(e) => updateEmployeeData("street", e.target.value)}
+							required
+							placeholder="Street address"
+						/>
 
 						<label htmlFor="city">City</label>
-						<input id="city" type="text" value={employeeData.city} onChange={(e) => updateEmployeeData("city", e.target.value)} required placeholder="City address" />
+						<input
+							id="city"
+							type="text"
+							value={employeeData.city}
+							onChange={(e) => updateEmployeeData("city", e.target.value)}
+							required
+							placeholder="City address"
+						/>
 
 						<SelectState state="state" setState={updateEmployeeData} value={employeeData.state} />
 
 						<label htmlFor="zip-code">Zip Code</label>
-						<input id="zip-code" type="number" value={employeeData.zipCode} onChange={(e) => updateEmployeeData("zipCode", e.target.value)} required placeholder="Zip code address" />
+						<input
+							id="zip-code"
+							type="number"
+							value={employeeData.zipCode}
+							onChange={(e) => updateEmployeeData("zipCode", e.target.value)}
+							required
+							placeholder="Zip code address"
+						/>
 					</fieldset>
 
 					<label htmlFor="department">Department</label>
-					<select name="department" id="department" value={employeeData.department} onChange={(e) => updateEmployeeData("department", e.target.value)}>
+					<select
+						name="department"
+						id="department"
+						value={employeeData.department}
+						onChange={(e) => updateEmployeeData("department", e.target.value)}
+					>
 						<option value="Sales">Sales</option>
 						<option value="Marketing">Marketing</option>
 						<option value="Engineering">Engineering</option>
@@ -155,5 +181,5 @@ export default function CreateEmployee() {
 				</Modal>
 			)}
 		</>
-	);
+	)
 }
