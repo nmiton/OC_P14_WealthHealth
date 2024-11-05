@@ -1,14 +1,16 @@
-import CreateEmployee from "./components/CreateEmployee";
-
-function App() {
+/**
+ * Function to render app wrapper
+ * @param {JSX.Element} children - JSX Element to show
+ * @returns {JSX.Element}
+ */
+// eslint-disable-next-line react/prop-types
+export default function App({ children }) {
 	return (
 		<>
-			<div className="title">
+			<header>
 				<h1>HRnet</h1>
-			</div>
-			<CreateEmployee />
+			</header>
+			<div id="app-content">{children}</div>
 		</>
 	);
 }
-
-export default App;

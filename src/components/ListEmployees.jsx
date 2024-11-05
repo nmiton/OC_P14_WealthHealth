@@ -1,9 +1,18 @@
-import { connect } from "react-redux";
 import DataTable from "react-data-table-component";
 import { Link } from "react-router-dom";
-
+import { EmployeesContext } from "../contexts/EmployeesContext";
+import { useContext } from "react";
+/**
+ * Function to render employees list
+ * @returns {JSX.Element}
+ */
 // eslint-disable-next-line react/prop-types, react-refresh/only-export-components
-const ListEmployees = ({ employees }) => {
+export default function ListEmployees() {
+	const employeesCtxt = useContext(EmployeesContext);
+
+	/**
+	 * Variables to define table columns
+	 */
 	const columns = [
 		{ name: "First Name", selector: "firstName", sortable: true },
 		{ name: "Last Name", selector: "lastName", sortable: true },
@@ -18,16 +27,9 @@ const ListEmployees = ({ employees }) => {
 
 	return (
 		<div className="container">
-			<h1>Current Employees</h1>
-			<DataTable title="Employee List" columns={columns} data={employees} pagination />
+			<h2>Current Employees</h2>
+			<DataTable title="Employee List" columns={columns} data={employeesCtxt.employees} pagination />
 			<Link to="/">Home</Link>
 		</div>
 	);
-};
-
-const mapStateToProps = (state) => ({
-	employees: state.employees.employees,
-});
-
-// eslint-disable-next-line react-refresh/only-export-components
-export default connect(mapStateToProps)(ListEmployees);
+}

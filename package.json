@@ -10,16 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@nmiton/modal": "^1.0.0",
-    "@reduxjs/toolkit": "^2.0.1",
+    "@nmiton/modal": "^1.0.8",
     "react": "^18.2.0",
     "react-data-table-component": "^7.5.4",
     "react-datatables": "^0.0.2",
     "react-dom": "^18.2.0",
-    "react-redux": "^9.0.4",
-    "react-router-dom": "^6.21.1",
-    "redux": "^5.0.1",
-    "redux-persist": "^6.0.0"
+    "react-router-dom": "^6.21.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
