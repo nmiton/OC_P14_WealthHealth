@@ -5,6 +5,7 @@ import App from "./App";
 import ListEmployees from "./components/ListEmployees";
 import { EmployeesProvider } from "./contexts/EmployeesContext";
 import CreateEmployee from "./components/CreateEmployee";
+import ErrorPage from "./components/ErrorPage";
 
 const path = createBrowserRouter([
 	{
@@ -16,6 +17,11 @@ const path = createBrowserRouter([
 				</App>
 			</EmployeesProvider>
 		),
+		errorElement: (
+			<App>
+				<ErrorPage />
+			</App>
+		),
 	},
 	{
 		path: "/employees-list",
@@ -25,6 +31,11 @@ const path = createBrowserRouter([
 					<ListEmployees />
 				</App>
 			</EmployeesProvider>
+		),
+		errorElement: (
+			<App>
+				<ErrorPage />
+			</App>
 		),
 	},
 ]);
