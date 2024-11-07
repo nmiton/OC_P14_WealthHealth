@@ -1,7 +1,7 @@
+import { useState, useContext } from "react"
 import DataTable from "react-data-table-component"
 import { Link } from "react-router-dom"
 import { EmployeesContext } from "../contexts/EmployeesContext"
-import { useContext } from "react"
 /**
  * Function to render employees list
  * @returns {JSX.Element}
@@ -9,6 +9,14 @@ import { useContext } from "react"
 // eslint-disable-next-line react/prop-types, react-refresh/only-export-components
 export default function ListEmployees() {
 	const employeesCtxt = useContext(EmployeesContext)
+	const [searchTerm, setSearchTerm] = useState("")
+
+	/**
+	 * Function to filter employees based on searchTerm
+	 */
+	const filteredData = employeesCtxt.employees.filter((employee) => {
+		return Object.values(employee).some((value) => (value ? value.toString().toLowerCase().includes(searchTerm.toLowerCase()) : false))
+	})
 
 	/**
 	 * Variables to define table columns
@@ -28,7 +36,20 @@ export default function ListEmployees() {
 	return (
 		<div className="container">
 			<h2>Current Employees</h2>
-			<DataTable title="Employee List :" columns={columns} data={employeesCtxt.employees} pagination noDataComponent="None employee" />
+
+			<div className="search-wrapper">
+				<label htmlFor="input-search-employee">Search</label>
+				<input
+					type="text"
+					id="input-search-employee"
+					placeholder="Search for employees"
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+				/>
+			</div>
+
+			<DataTable title="Employee List:" columns={columns} data={filteredData} pagination noDataComponent="None employee found" />
+
 			<Link to="/">Home</Link>
 		</div>
 	)

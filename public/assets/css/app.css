@@ -49,6 +49,7 @@ header nav ul li.active a{
 }
 
 #home-wrapper ul button:hover{
+    color: white;
    background-color: #4caf50;
    border-color: black;
 }
@@ -150,4 +151,8 @@ form button:hover {
 
 .button-container {
     text-align: center;
+}
+
+.search-wrapper{
+    width: 100%;
 }

@@ -85,7 +85,7 @@ export default function CreateEmployee() {
 						value={employeeData.firstName}
 						onChange={(e) => updateEmployeeData("firstName", e.target.value)}
 						required
-						placeholder="Employee firstname"
+						placeholder="Firstname"
 						autoComplete="off"
 					/>
 
@@ -96,7 +96,7 @@ export default function CreateEmployee() {
 						value={employeeData.lastName}
 						onChange={(e) => updateEmployeeData("lastName", e.target.value)}
 						required
-						placeholder="Employee lastname"
+						placeholder="Lastname"
 						autoComplete="off"
 					/>
 
@@ -107,7 +107,7 @@ export default function CreateEmployee() {
 						value={employeeData.dateOfBirth}
 						onChange={(e) => updateEmployeeData("dateOfBirth", e.target.value)}
 						required
-						placeholder="Employee date of birth"
+						placeholder="Date of birth"
 						max={today.toISOString().split("T")[0]}
 					/>
 
@@ -118,7 +118,7 @@ export default function CreateEmployee() {
 						value={employeeData.startDate}
 						onChange={(e) => updateEmployeeData("startDate", e.target.value)}
 						required
-						placeholder="Employee start date"
+						placeholder="Start date"
 						max={today.toISOString().split("T")[0]}
 					/>
 
@@ -132,7 +132,7 @@ export default function CreateEmployee() {
 							value={employeeData.street}
 							onChange={(e) => updateEmployeeData("street", e.target.value)}
 							required
-							placeholder="Street address"
+							placeholder="Street"
 						/>
 
 						<label htmlFor="city">City</label>
@@ -142,7 +142,7 @@ export default function CreateEmployee() {
 							value={employeeData.city}
 							onChange={(e) => updateEmployeeData("city", e.target.value)}
 							required
-							placeholder="City address"
+							placeholder="City"
 						/>
 
 						<SelectState state="state" setState={updateEmployeeData} value={employeeData.state} />
@@ -154,7 +154,7 @@ export default function CreateEmployee() {
 							value={employeeData.zipCode}
 							onChange={(e) => updateEmployeeData("zipCode", e.target.value)}
 							required
-							placeholder="Zip code address"
+							placeholder="Zip code"
 						/>
 					</fieldset>
 
