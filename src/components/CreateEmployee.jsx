@@ -26,7 +26,7 @@ export default function CreateEmployee() {
 	const employeesCtxt = useContext(EmployeesContext)
 	const formRef = useRef()
 	const [employeeData, setEmployeeData] = useState(initialEmployeeState)
-	const [showModal, setShowModal] = useState(true)
+	const [showModal, setShowModal] = useState(false)
 	const today = new Date()
 
 	/**
