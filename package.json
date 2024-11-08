@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@nmiton/modal": "^1.0.8",
+    "@nmiton/modal": "^1.0.15",
     "prettier": "^3.3.3",
     "react": "^18.2.0",
     "react-data-table-component": "^7.6.2",
