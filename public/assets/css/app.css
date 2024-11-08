@@ -156,3 +156,7 @@ form button:hover {
 .search-wrapper{
     width: 100%;
 }
+
+.btn-close{
+    margin-left: auto;
+}

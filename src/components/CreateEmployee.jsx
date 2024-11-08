@@ -3,6 +3,20 @@ import SelectState from "./SelectState"
 import { useContext, useRef, useState } from "react"
 import { Modal } from "@nmiton/modal"
 import { EmployeesContext } from "../contexts/EmployeesContext"
+
+// Initial state for a new employee with empty values
+const initialEmployeeState = {
+	firstName: "",
+	lastName: "",
+	dateOfBirth: "",
+	startDate: "",
+	department: "Sales",
+	street: "",
+	city: "",
+	state: "Alabama",
+	zipCode: "",
+}
+
 /**
  * Function to render form for create a new employee
  * @returns {JSX.Element}
@@ -11,21 +25,8 @@ import { EmployeesContext } from "../contexts/EmployeesContext"
 export default function CreateEmployee() {
 	const employeesCtxt = useContext(EmployeesContext)
 	const formRef = useRef()
-
-	// Initial state for a new employee with empty values
-	const initialEmployeeState = {
-		firstName: "",
-		lastName: "",
-		dateOfBirth: "",
-		startDate: "",
-		department: "Sales",
-		street: "",
-		city: "",
-		state: "Alabama",
-		zipCode: "",
-	}
 	const [employeeData, setEmployeeData] = useState(initialEmployeeState)
-	const [showModal, setShowModal] = useState(false)
+	const [showModal, setShowModal] = useState(true)
 	const today = new Date()
 
 	/**
