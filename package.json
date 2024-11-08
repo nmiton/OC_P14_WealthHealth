@@ -13,7 +13,7 @@
     "@nmiton/modal": "^1.0.8",
     "prettier": "^3.3.3",
     "react": "^18.2.0",
-    "react-data-table-component": "^7.5.4",
+    "react-data-table-component": "^7.6.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1"
   },
